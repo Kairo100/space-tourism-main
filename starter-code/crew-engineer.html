@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <!-- general css  -->
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+<!-- swriper js -->
+<link
+rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>Frontend Mentor | Space tourism wespansite</title>
+
+  <!-- css -->
+   <style>
+    body{
+      background-image: url(assets/crew/background-crew-desktop.jpg);
+    }
+ .swiper-slide  h1{
+      
+      padding-left: 130px;
+      color: white;
+      font-size: 30px;
+    }
+    h1 span{
+     color: rgba(255, 255, 255, 0.363);  
+    }
+  /* by using swiper js*/
+.swiper {
+  width: 100%;
+  height: calc(100vh-180px);
+     }
+
+    .swiper-slide .crew {
+    padding: 0 90px;
+    display: grid;
+    grid-template-columns: repeat(2,40%);
+   gap: 150px;
+    align-items: center;
+
+    
+    }
+    .swiper-slide .crew h1{
+      font-size: 55px;
+      padding: 0;
+      letter-spacing: 3px;
+    }
+    .swiper-slide .crew .left{
+      display: block;
+  
+  
+    }
+  
+
+    .swiper-slide img {
+   
+     width: 80%;        
+     height: 500px;      
+     display: block; 
+
+    }
+   
+   
+    .swiper-pagination-bullet-active {
+     background-color: white; 
+    
+        }
+
+        /* responsive of crew page*/
+    @media screen and (max-width:767px) {
+          body{
+            background-image: url(assets/crew/background-crew-mobile.jpg);
+            height: 100vh;
+          }
+          .swiper-slide .crew {
+            grid-template-columns: repeat(1,100%);
+            padding-left: 30px;
+            gap: 0;
+          }
+          .swiper-slide  h1{
+            padding-left: 20px;
+            font-size: 14px;
+            
+          }
+          .swiper-slide .crew h1{
+            font-size: 25px;
+          }
+          .swiper-slide .crew h3{
+            margin-top: 10px;
+          }
+          .swiper-slide img {
+            height: 300px;
+          }
+        }
+   </style>
+</head>
+<body>
+<!--  header and nav menu -->
+<div class="header">
+  <div class="logo">
+    <div><img src="assets/shared/logo.svg" alt=""></div>
+    <div><hr></div>
+  </div>
+  
+ <div class="nav">
+  <img src="assets/shared/icon-hamburger.svg" alt="" id="btn-menu">
+  <nav class="Menu">
+   <ul class="list">
+    <li class="list-item">
+      <a href="index.html" class="list-link active"> <span>00</span> Home</a>
+    </li>
+    <li class="list-item">
+      <a href="destination-moon.html" class="list-link"> <span>01</span> Destination</a>
+    </li>
+    <li class="list-item">
+      <a href="crew-engineer.html" class="list-link"> <span>02</span> Crew</a>
+    </li>
+    <li class="list-item">
+      <a href="technology-vehicle.html" class="list-link"> <span>03</span> Technology</a>
+    </li>
+    <li class="list-item">
+      <img src="assets/shared/icon-close.svg" alt="" id="btn-close">
+    </li>
+   </ul>
+   
+  </nav>
+ </div>
+</div>
+
+<!-- carousel using swiper js  -->
+
+<!-- container div -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <!-- slide div -->
+    <div class="swiper-slide">
+      <h1><span>02</span> Meet your crew</h1>
+      <div class="crew">
+        <div class="left">
+          <h3>Flight Engineer</h3>
+          <h1>Anousheh Ansari</h1>
+          <p>Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. 
+            Ansari was the fourth self-funded space tourist, the first self-funded woman to 
+            fly to the ISS, and the first Iranian in space.</p>
+        </div>
+        <div class="right">
+          <img src="assets/crew/image-anousheh-ansari.webp" alt="">
+        </div>
+      </div>
+    </div>
+   
+    <div class="swiper-slide">
+      <h1><span>02</span> Meet your crew</h1>
+      <div class="crew">
+        <div class="left">
+          <h3>Commander</h3>
+          <h1>Douglas Hurley</h1>
+          <p> Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
+            and former NASA astronaut. He launched into space for the third time as 
+            commander of Crew Dragon Demo-2.</p>
+        </div>
+        <div class="right">
+          <img src="assets/crew/image-douglas-hurley.webp" alt=""  >
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <h1><span>02</span> Meet your crew</h1>
+      <div class="crew">
+        <div class="left">
+          <h3>Pilot</h3>
+          <h1> Victor Glover</h1>
+          <p> Pilot on the first operational flight of the SpaceX Crew Dragon to the 
+            International Space Station. Glover is a commander in the U.S. Navy where 
+            he pilots an F/A-18.He was a crew member of Expedition 64, and served as a 
+            station systems flight engineer. </p>
+        </div>
+        <div class="right">
+          <img src="assets/crew/image-victor-glover.webp" alt=""  >
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <h1><span>02</span> Meet your crew</h1>
+      <div class="crew">
+        <div class="left">
+          <h3>Mission Specialist</h3>
+          <h1>  Mark Shuttleworth</h1>
+          <p>   Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind 
+            the Linux-based Ubuntu operating system. Shuttleworth became the first South 
+            African to travel to space as a space tourist. </p>
+        </div>
+        <div class="right">
+          <img src="assets/crew/image-mark-shuttleworth.webp" alt=""  >
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <!-- pagination -->
+  <div class="swiper-pagination"></div>
+</div>
+
+
+
+
+
+  <!-- swiper js link -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- geeral js -->
+  <script src="assets/script.js"></script>
+
+  <script>
+    //swiper js code
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+      autoplay: {
+    delay: 5000, 
+    disableOnInteraction: false, 
+  },
+  loop:true,
+    });
+  </script>
+</body>
+</html>

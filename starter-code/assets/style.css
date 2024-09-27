@@ -1,0 +1,142 @@
+/** general css 
+header and basic css 
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('./home/background-home-desktop.jpg');
+    font-family: "Lato", sans-serif;
+    color: rgba(255, 255, 255, 0.664);
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center   ;
+ 
+  height: 120px;
+  background: linear-gradient(0,0);
+  width: 100%;
+  padding: 20px;
+}
+.logo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   
+
+}
+.logo hr{
+  width:400px;
+   margin-left: 100px;
+  outline: none;
+  border: 0.5px solid rgba(255, 255, 255, 0.144);
+}
+ .Menu{
+   background-color: rgba(0, 0, 0, 0.3);
+   backdrop-filter: blur(40px);
+   -webkit-backdrop-filter: blur(40px);
+   height: 100%;
+  z-index: 1;
+  
+}
+.list{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:27px 10px; 
+    gap: 35px;
+}
+.list-item{
+  
+   padding:0 20px;
+}
+.list-link  {
+    color: rgba(255, 255, 255, 0.568);
+    text-transform:uppercase;
+    position: relative;
+    display: flex;
+  gap: 10px ;
+   
+}
+.list-link span{
+color: white;
+font-weight: bold;
+}
+.active::after{
+    content: '';
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    top: 250%;
+    left:0;
+    bottom: 0;
+    position: absolute;
+
+}
+#btn-menu, #btn-close{
+    display: none;
+}
+
+@media screen and (max-width:767px) {
+    body{
+        background-image: url('./home/background-home-mobile.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+    .logo hr{
+        display: none;
+    }
+    .Menu{
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      top: 0;
+      right: -100%;
+    }
+    .list{
+        display: flex;
+      flex-direction: column;
+     
+       
+    }
+    .list-item{
+        display: block;
+        align-self: first baseline;
+    }
+    .list-link {
+        
+        padding: 0;
+    }
+    .active::after{
+        top: 170%;
+    }
+    
+    #btn-close{
+        display: block;
+       
+        top: 40px;
+        position: absolute;
+        right: 20px;
+    }
+    #btn-menu{
+        display: block;
+        right: 10;
+    }
+    .collapsed{
+        right: 0;
+    }
+}

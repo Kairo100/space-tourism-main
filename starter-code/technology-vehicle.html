@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <!-- general css -->
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Space tourism wespansite</title>
+
+  <!-- css   -->
+  <style>
+    body{
+      background-image: url(assets/technology/background-technology-desktop.jpg);
+     
+    }
+      h1{
+      padding-top: 30px;
+      padding-left: 130px;
+      color: white;
+      font-size: 30px;
+    }
+    h1 span{
+     color: rgba(255, 255, 255, 0.363);  
+    }
+
+    /* main dif*/
+    .technology{
+      padding: 0 50px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 5% 30% 45%;
+       gap: 100px;
+       align-items: center;
+       justify-content: center;
+    }
+    .text h1{
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    /* nav numbers */
+    .num{
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 1px solid white;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+      cursor: pointer;
+    }
+     .n-active{
+      background-color: white;
+      color: black;
+    }
+    .image img{
+      height: 450px;
+      width: 80%;
+    }
+  /* responsive css*/
+    @media screen and (max-width:767px) {
+      body{
+        background-image: url(assets/technology/background-technology-mobile.jpg);
+        height: 140vh;
+      }
+      .technology{
+      grid-template-columns: 100%;  
+      gap: 20px;
+      padding: 0 30px;
+      align-content: center;
+     
+      }
+     .numbers{
+         display: flex;
+     }
+     h1{ padding-left: 30px;}
+     .image img{ height: 200px;}
+    }
+  </style>
+</head>
+
+<body>
+<!--  nav bar and header -->
+<div class="header">
+  <div class="logo">
+    <div><img src="assets/shared/logo.svg" alt=""></div>
+    <div><hr></div>
+  </div>
+  
+ <div class="nav">
+  <img src="assets/shared/icon-hamburger.svg" alt="" id="btn-menu">
+  <nav class="Menu">
+   <ul class="list">
+    <li class="list-item">
+      <a href="index.html" class="list-link active"> <span>00</span> Home</a>
+    </li>
+    <li class="list-item">
+      <a href="destination-moon.html" class="list-link"> <span>01</span> Destination</a>
+    </li>
+    <li class="list-item">
+      <a href="crew-engineer.html" class="list-link"> <span>02</span> Crew</a>
+    </li>
+    <li class="list-item">
+      <a href="technology-vehicle.html" class="list-link"> <span>03</span> Technology</a>
+    </li>
+    <li class="list-item">
+      <img src="assets/shared/icon-close.svg" alt="" id="btn-close">
+    </li>
+   </ul>
+   
+  </nav>
+ </div>
+</div>
+<h1 > <span>03 </span> Space launch 101</h1>
+ <!--  main div -->
+<div class="technology">
+  <div class="numbers">
+    <div class="num n-active" onclick="setChanges('Launch vehicle'); activeChnage('1')">1</div> 
+    <div class="num" onclick="setChanges('Spaceport') ; activeChnage('2')">2</div> 
+    <div class="num" onclick="setChanges('Space capsule') ; activeChnage('3')">3</div> 
+  </div>
+  <div class="text">
+    <h3>  The terminology...</h3>
+    <h1 id="title">  Launch vehicle</h1>
+    <p id="description">  A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
+      payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+      WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+      it's quite an awe-inspiring sight on the launch pad!</p>
+  </div>
+  <div class="image">
+    <img src="assets/technology/image-launch-vehicle-portrait.jpg" alt="" id="image-tech">
+  </div>
+</div>
+
+
+<!-- general javascript -->
+<script src="assets/script.js"></script>
+
+
+<script>
+
+  //active numbers
+function activeChnage(techName) {
+  const numbers = document.querySelectorAll('.num');
+
+  numbers.forEach(n => {
+    // Check if this number matches the clicked one
+    if (n.textContent.trim() === techName) {
+      n.classList.add('n-active'); // Add active class to the selected number
+    } else {
+      n.classList.remove('n-active'); // Remove active class from others
+    }
+  });
+}
+
+  //fetching data
+  //from data.json technology
+  async function uploadTechnology(techName) {
+    const reponse = await fetch('data.json')
+    const data = await reponse.json()
+
+    const technologys = data.technology.find( tech =>tech.name===techName)
+    if(technologys){
+      document.getElementById('title').textContent= technologys.name;
+      document.getElementById('description').textContent= technologys.description;
+      document.getElementById('image-tech').src= technologys.images.portrait
+    }
+
+
+  }
+
+   function setChanges(techName) {
+    uploadTechnology(techName);
+   
+  }
+ 
+</script>
+  <!-- 
+  00 Home
+  01 Destination
+  02 Crew
+  03 Technology
+
+  03 Space launch 101
+
+  1
+  2
+  3
+
+  The terminology...
+  Launch vehicle
+
+  A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
+  payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+  WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+  it's quite an awe-inspiring sight on the launch pad! -->
+</body>
+</html>
